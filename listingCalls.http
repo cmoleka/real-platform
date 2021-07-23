@@ -1,0 +1,51 @@
+POST http://localhost:5001/listings/create HTTP/1.1
+content-type: application/json
+
+{
+    "title": "okok appartement 2 chambres",
+    "images": ["images.jpg"],
+    "location": {
+        "address": "88 Godin Street",
+        "city": "Longueuil",
+        "neighborhood": "Rive-sud",
+        "country": "Canada"
+    },
+    "price": "$1100",
+    "propertyType": "Appartment",
+    "postedBy": "Carlo",
+    "contact": {
+        "phones": ["514-111-1111"],
+        "emails": "contact@ilappart.com"
+    },
+    "details": {
+        "description": "Beautfile appartment with 3 bed rooms and 1 bathroom toilet.",
+        "numRooms": "2",
+        "numToilets": "1",
+        "numBaths": "1"
+    }
+}
+
+
+###
+
+PATCH http://localhost:5001/listings/update/?id=60ef68efbab30a918e28c509 HTTP/1.1
+Content-Type: application/json
+
+{
+    "$set": {
+        "details.numToilets": "888888888"
+    }
+}
+
+###
+GET http://localhost:5001/listings/single/?id=60ef68efbab30a918e28c509
+Content-Type: application/json
+
+###
+GET http://localhost:5001/listings HTTP/1.1
+Content-Type: application/json
+
+
+###
+DELETE http://localhost:5001/listings/remove/?id=60ef68efbab30a918e28c509
+Content-Type: application/json
